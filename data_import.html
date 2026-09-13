@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriSurvey AI – Survey Data Import</title>
+  <meta name="description" content="Import post-flight survey images and metadata for processing." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo.jpg" alt="AgriSurvey AI" class="logo-img" />
+        <span class="brand-name">AgriSurvey <span class="brand-accent">AI</span></span>
+      </div>
+      <nav>
+        <div class="nav-group">
+          <span class="nav-label">OPERATIONS</span>
+          <a href="index.html">Dashboard</a>
+          <a href="mission_planner.html">Mission Planner</a>
+          <a href="data_import.html" class="active">Data Import</a>
+          <a href="processing.html">Survey Processing</a>
+          <a href="survey_analysis.html">Survey Analysis</a>
+          <a href="gis_results.html">GIS Results</a>
+          <a href="reports.html">Reports</a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">SYSTEM</span>
+          <a href="architecture.html">Architecture</a>
+          <a href="feature_matrix.html">Feature Matrix</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1>Survey Data Import</h1>
+    <p class="subtitle">Upload captured survey imagery and metadata after the drone mission.</p>
+
+    <div class="banner banner-info" style="margin-top:1rem;">
+      📁 This is a <strong>post-flight</strong> import workflow. No live connection to any aircraft is made.
+    </div>
+
+    <!-- Upload Status -->
+    <div class="card" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <div>
+        <h2>Upload Status</h2>
+        <span class="badge badge-gray" id="statusBadge">⏸ Awaiting Upload</span>
+      </div>
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap;" id="statsRow" style="display:none;">
+        <span class="badge badge-blue" id="statSelected">Files Selected: 0</span>
+        <span class="badge badge-green" id="statValidated">Validated: 0</span>
+        <span class="badge badge-red" id="statRejected">Rejected: 0</span>
+        <span class="badge badge-yellow" id="statNoLocation">Missing Location: 0</span>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <!-- Left column -->
+      <div>
+        <div class="card">
+          <h2>1 · Select Existing Mission</h2>
+          <div class="input-group">
+            <label for="missionSelect">Mission</label>
+            <select id="missionSelect">
+              <option value="">-- Choose a planned mission --</option>
+              <option value="mission1">Corn Survey Alpha</option>
+              <option value="mission2">Soybean Survey Beta</option>
+              <option value="mission3">Wheat Survey Gamma</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>2 · Upload Survey Images</h2>
+          <p style="font-size:0.85rem; margin-bottom:0.75rem;">Supported: JPG, JPEG, PNG, TIFF</p>
+          <div class="input-group">
+            <label for="imageFiles">Select Image Files</label>
+            <input type="file" id="imageFiles" multiple accept=".jpg,.jpeg,.png,.tif,.tiff" />
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>3 · Import Flight Metadata</h2>
+          <p style="font-size:0.85rem; margin-bottom:0.75rem;">Supported: CSV, JSON, GPX, KML</p>
+          <div class="input-group">
+            <label for="metadataFile">Select Metadata File</label>
+            <input type="file" id="metadataFile" accept=".csv,.json,.gpx,.kml" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div>
+        <div class="card">
+          <h2>4 · GNSS Metadata</h2>
+          <p style="font-size:0.85rem; margin-bottom:0.75rem;">GNSS coordinates will be extracted automatically from image EXIF or flight log metadata. If unavailable, enter manually below.</p>
+          <div class="input-group">
+            <label for="manualCoords">Manual Coordinates (Latitude, Longitude)</label>
+            <input type="text" id="manualCoords" placeholder="e.g. 35.6895, -120.1234" />
+          </div>
+          <div class="banner banner-warn" style="font-size:0.82rem;">
+            ⚠️ GNSS data comes from post-flight import only. No real-time GNSS connection is made.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>5 · Survey Information</h2>
+          <div class="input-group">
+            <label>Mission ID</label>
+            <input type="text" placeholder="e.g. MSN-2026-001" />
+          </div>
+          <div class="input-group">
+            <label>Plot ID</label>
+            <input type="text" placeholder="e.g. PLOT-A" />
+          </div>
+          <div class="input-group">
+            <label>Survey Date</label>
+            <input type="date" />
+          </div>
+          <div class="input-group">
+            <label>Operator</label>
+            <input type="text" placeholder="Operator name" />
+          </div>
+          <div class="input-group">
+            <label>Camera</label>
+            <input type="text" placeholder="e.g. RGB 20 MP" />
+          </div>
+          <div class="input-group">
+            <label>Notes</label>
+            <textarea rows="3" placeholder="Any additional notes about this survey..."></textarea>
+          </div>
+
+          <button id="startUploadBtn">⬆️ Start Upload</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>AgriSurvey AI – Post-Flight Survey Platform &nbsp;|&nbsp; &copy; 2026</p>
+  </footer>
+
+  <script>
+    const badge = document.getElementById('statusBadge');
+    const states = [
+      ['⬆️ Uploading',          'badge-yellow'],
+      ['🔍 Validating',         'badge-orange'],
+      ['✅ Ready For Processing','badge-green'],
+    ];
+
+    document.getElementById('imageFiles').addEventListener('change', e => {
+      document.getElementById('statSelected').textContent = 'Files Selected: ' + e.target.files.length;
+      document.getElementById('statsRow').style.display = 'flex';
+    });
+
+    document.getElementById('startUploadBtn').addEventListener('click', () => {
+      let i = 0;
+      function next() {
+        if (i >= states.length) return;
+        badge.textContent = states[i][0];
+        badge.className = 'badge ' + states[i][1];
+        i++;
+        if (i < states.length) setTimeout(next, 1600);
+        else {
+          document.getElementById('statValidated').textContent = 'Validated: ' + (document.getElementById('imageFiles').files.length || 12);
+          document.getElementById('statRejected').textContent = 'Rejected: 0';
+          document.getElementById('statNoLocation').textContent = 'Missing Location: 2';
+        }
+      }
+      next();
+    });
+  </script>
+</body>
+</html>

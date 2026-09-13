@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriSurvey AI – Dashboard</title>
+  <meta name="description" content="AgriSurvey AI – post-flight drone-assisted geospatial agricultural survey and decision-support platform." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo.jpg" alt="AgriSurvey AI" class="logo-img" />
+        <span class="brand-name">AgriSurvey <span class="brand-accent">AI</span></span>
+      </div>
+      <nav>
+        <div class="nav-group">
+          <span class="nav-label">OPERATIONS</span>
+          <a href="index.html" class="active">Dashboard</a>
+          <a href="gis_survey.html">GIS Survey</a>
+          <a href="mission_planner.html">Mission Planner</a>
+          <a href="data_import.html">Data Import</a>
+          <a href="processing.html">Survey Processing</a>
+          <a href="survey_analysis.html">Survey Analysis</a>
+          <a href="gis_results.html">GIS Results</a>
+          <a href="reports.html">Reports</a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">PROJECT</span>
+          <a href="evidence.html">Project Evidence</a>
+          <a href="design_thinking.html">Design Thinking</a>
+          <a href="ideation.html">Ideation Matrix</a>
+          <a href="ai_audit.html">AI Interaction Audit</a>
+          <a href="validation.html">Validation</a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">SYSTEM</span>
+          <a href="architecture.html">Architecture</a>
+          <a href="settings.html">Settings</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1>Dashboard</h1>
+    <p class="subtitle">Post-Flight Survey Platform Overview</p>
+
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="card stat-card">
+        <div class="stat-icon">🗺️</div>
+        <div class="stat-value">12</div>
+        <div class="stat-label">Total Survey Plots</div>
+      </div>
+      <div class="card stat-card">
+        <div class="stat-icon">📋</div>
+        <div class="stat-value">5</div>
+        <div class="stat-label">Planned Missions</div>
+      </div>
+      <div class="card stat-card">
+        <div class="stat-icon">⬆️</div>
+        <div class="stat-value">3</div>
+        <div class="stat-label">Awaiting Upload</div>
+      </div>
+      <div class="card stat-card">
+        <div class="stat-icon">⚙️</div>
+        <div class="stat-value">2</div>
+        <div class="stat-label">Processing Surveys</div>
+      </div>
+      <div class="card stat-card">
+        <div class="stat-icon">👁️</div>
+        <div class="stat-value">4</div>
+        <div class="stat-label">Human Review Pending</div>
+      </div>
+      <div class="card stat-card">
+        <div class="stat-icon">✅</div>
+        <div class="stat-value">7</div>
+        <div class="stat-label">Completed Surveys</div>
+      </div>
+    </div>
+
+    <!-- Project Workflow Banner -->
+    <div class="card" style="margin-top:2rem;">
+      <h2>Survey Workflow Stages</h2>
+      <div class="workflow-bar">
+        <div class="wf-step done">PLAN</div>
+        <div class="wf-arrow">→</div>
+        <div class="wf-step done">FIELD CAPTURE</div>
+        <div class="wf-arrow">→</div>
+        <div class="wf-step active">UPLOAD</div>
+        <div class="wf-arrow">→</div>
+        <div class="wf-step">PROCESS</div>
+        <div class="wf-arrow">→</div>
+        <div class="wf-step">ANALYSE</div>
+        <div class="wf-arrow">→</div>
+        <div class="wf-step">VERIFY</div>
+        <div class="wf-arrow">→</div>
+        <div class="wf-step">REPORT</div>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="card">
+      <h2>Recent Activity</h2>
+      <ul class="activity-list">
+        <li><span class="act-dot green"></span> Mission Planned – "Corn Field Alpha" (2026-09-10)</li>
+        <li><span class="act-dot blue"></span> Survey Marked Completed – "Soybean Survey B"</li>
+        <li><span class="act-dot green"></span> Images Uploaded – 128 files</li>
+        <li><span class="act-dot yellow"></span> Processing Started – "Wheat Survey C"</li>
+        <li><span class="act-dot blue"></span> Analysis Ready – "Barley Survey D"</li>
+        <li><span class="act-dot green"></span> Observation Verified – "Rye Survey E"</li>
+        <li><span class="act-dot purple"></span> Report Generated – "Mixed Crop Report Q3"</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>AgriSurvey AI – A post-flight drone-assisted geospatial agricultural survey and decision-support platform.</p>
+    <p style="margin-top:0.25rem; font-size:0.8rem; color:var(--text-secondary);">&copy; 2026 AgriSurvey AI. This prototype does not provide real-time UAV telemetry or live camera streaming.</p>
+  </footer>
+
+</body>
+</html>

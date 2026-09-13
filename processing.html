@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriSurvey AI – Survey Processing</title>
+  <meta name="description" content="Post-upload survey data processing pipeline for GIS and AI analysis." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo.jpg" alt="AgriSurvey AI" class="logo-img" />
+        <span class="brand-name">AgriSurvey <span class="brand-accent">AI</span></span>
+      </div>
+      <nav>
+        <div class="nav-group">
+          <span class="nav-label">OPERATIONS</span>
+          <a href="index.html">Dashboard</a>
+          <a href="mission_planner.html">Mission Planner</a>
+          <a href="data_import.html">Data Import</a>
+          <a href="processing.html" class="active">Survey Processing</a>
+          <a href="survey_analysis.html">Survey Analysis</a>
+          <a href="gis_results.html">GIS Results</a>
+          <a href="reports.html">Reports</a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">SYSTEM</span>
+          <a href="architecture.html">Architecture</a>
+          <a href="feature_matrix.html">Feature Matrix</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1>Survey Data Processing</h1>
+    <p class="subtitle">Post-upload processing pipeline. No live drone connection.</p>
+
+    <div class="banner banner-warn" style="margin-top:1rem;">
+      🧪 <strong>PROTOTYPE PROCESSING WORKFLOW</strong> — Actual photogrammetry and AI inference not yet implemented. This diagram represents the intended pipeline.
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2>Processing Pipeline</h2>
+        <div class="pipeline">
+          <div class="pipeline-step">
+            <span class="pipeline-step-name">1 · Uploaded Images</span>
+            <span class="badge badge-green">Completed</span>
+          </div>
+          <div class="pipeline-step">
+            <span class="pipeline-step-name">2 · File Validation</span>
+            <span class="badge badge-green">Completed</span>
+          </div>
+          <div class="pipeline-step">
+            <span class="pipeline-step-name">3 · Metadata Extraction</span>
+            <span class="badge badge-green">Completed</span>
+          </div>
+          <div class="pipeline-step">
+            <span class="pipeline-step-name">4 · Image Organization</span>
+            <span class="badge badge-green">Completed</span>
+          </div>
+          <div class="pipeline-step">
+            <span class="pipeline-step-name">5 · Geo-Reference / Coordinate Association</span>
+            <span class="badge badge-yellow">Processing</span>
+          </div>
+          <div class="pipeline-step">
+            <span class="pipeline-step-name">6 · Image Preparation</span>
+            <span class="badge badge-gray">Pending</span>
+          </div>
+          <div class="pipeline-step">
+            <span class="pipeline-step-name">7 · GIS Layer Preparation</span>
+            <span class="badge badge-gray">Pending</span>
+          </div>
+          <div class="pipeline-step">
+            <span class="pipeline-step-name">8 · AI-Assisted Analysis</span>
+            <span class="badge badge-gray">Pending</span>
+          </div>
+          <div class="pipeline-step">
+            <span class="pipeline-step-name">9 · Human Review</span>
+            <span class="badge badge-gray">Pending</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h2>Current Survey</h2>
+          <table class="data-table">
+            <tbody>
+              <tr><td>Mission</td><td>Corn Survey Alpha</td></tr>
+              <tr><td>Images Uploaded</td><td>128</td></tr>
+              <tr><td>Validated</td><td>128</td></tr>
+              <tr><td>Geo-Referenced</td><td>114 / 128</td></tr>
+              <tr><td>Missing Location</td><td><span class="badge badge-orange">14</span></td></tr>
+              <tr><td>Current Status</td><td><span class="badge badge-yellow">Processing</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>Camera Workflow</h2>
+          <div class="pipeline">
+            <div class="pipeline-step"><span class="pipeline-step-name">CAMERA</span><span class="badge badge-gray">On-board</span></div>
+            <div class="pipeline-step"><span class="pipeline-step-name">Stored Survey Images</span><span class="badge badge-green">Completed</span></div>
+            <div class="pipeline-step"><span class="pipeline-step-name">Post-Flight Transfer</span><span class="badge badge-green">Completed</span></div>
+            <div class="pipeline-step"><span class="pipeline-step-name">AgriSurvey AI Upload</span><span class="badge badge-green">Completed</span></div>
+            <div class="pipeline-step"><span class="pipeline-step-name">Processing</span><span class="badge badge-yellow">In Progress</span></div>
+          </div>
+          <div class="banner banner-info" style="margin-top:1rem; font-size:0.82rem;">
+            ℹ️ The camera captures imagery during flight. The website does NOT receive the camera feed directly. Data is transferred post-flight.
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>AgriSurvey AI – Post-Flight Survey Platform &nbsp;|&nbsp; &copy; 2026</p>
+  </footer>
+</body>
+</html>

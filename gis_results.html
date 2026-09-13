@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriSurvey AI – GIS Results</title>
+  <meta name="description" content="GIS results generated from uploaded and processed survey data." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo.jpg" alt="AgriSurvey AI" class="logo-img" />
+        <span class="brand-name">AgriSurvey <span class="brand-accent">AI</span></span>
+      </div>
+      <nav>
+        <div class="nav-group">
+          <span class="nav-label">OPERATIONS</span>
+          <a href="index.html">Dashboard</a>
+          <a href="mission_planner.html">Mission Planner</a>
+          <a href="data_import.html">Data Import</a>
+          <a href="processing.html">Survey Processing</a>
+          <a href="survey_analysis.html">Survey Analysis</a>
+          <a href="gis_results.html" class="active">GIS Results</a>
+          <a href="reports.html">Reports</a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">SYSTEM</span>
+          <a href="architecture.html">Architecture</a>
+          <a href="feature_matrix.html">Feature Matrix</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1>GIS Results</h1>
+    <p class="subtitle">Generated from uploaded and processed post-flight survey data.</p>
+
+    <div class="banner banner-info" style="margin-top:1rem;">
+      🗺️ GIS results are generated from uploaded survey imagery and metadata — not from real-time aircraft position.
+    </div>
+
+    <div class="split" style="margin-top:1.5rem;">
+      <div>
+        <!-- Map Placeholder -->
+        <div class="card" style="padding:0; overflow:hidden;">
+          <div style="background:linear-gradient(135deg, #0a1628, #0e2040); height:420px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--text-dim); gap:0.75rem;">
+            <div style="font-size:3rem;">🗺️</div>
+            <p style="font-size:0.9rem;">GIS Map Viewer</p>
+            <p style="font-size:0.78rem; text-align:center; max-width:280px;">Integrate <strong>Leaflet.js</strong> or <strong>OpenLayers</strong> here for an interactive map with the layers below.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h2>Map Layers</h2>
+          <table class="data-table">
+            <tbody>
+              <tr>
+                <td><label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;"><input type="checkbox" checked /> Plot Boundary</label></td>
+                <td><span class="badge badge-green">Active</span></td>
+              </tr>
+              <tr>
+                <td><label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;"><input type="checkbox" checked /> Uploaded Survey Images</label></td>
+                <td><span class="badge badge-green">Active</span></td>
+              </tr>
+              <tr>
+                <td><label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;"><input type="checkbox" checked /> Survey Points</label></td>
+                <td><span class="badge badge-green">Active</span></td>
+              </tr>
+              <tr>
+                <td><label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;"><input type="checkbox" checked /> Processed Observations</label></td>
+                <td><span class="badge badge-blue">14 features</span></td>
+              </tr>
+              <tr>
+                <td><label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;"><input type="checkbox" checked /> AI Suggestions</label></td>
+                <td><span class="badge badge-yellow">8 pending</span></td>
+              </tr>
+              <tr>
+                <td><label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;"><input type="checkbox" checked /> Human-Verified Observations</label></td>
+                <td><span class="badge badge-green">6 verified</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>GNSS Workflow</h2>
+          <div class="pipeline">
+            <div class="pipeline-step"><span class="pipeline-step-name">GNSS / Flight Metadata</span><span class="badge badge-green">Imported</span></div>
+            <div class="pipeline-step"><span class="pipeline-step-name">Post-Flight Import</span><span class="badge badge-green">Complete</span></div>
+            <div class="pipeline-step"><span class="pipeline-step-name">Coordinate Association</span><span class="badge badge-yellow">In Progress</span></div>
+            <div class="pipeline-step"><span class="pipeline-step-name">GIS Layer Output</span><span class="badge badge-gray">Pending</span></div>
+          </div>
+          <div class="banner banner-info" style="margin-top:1rem; font-size:0.82rem;">
+            ℹ️ No real-time GNSS connection is made. Coordinates are associated from post-flight import data.
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>AgriSurvey AI – Post-Flight Survey Platform &nbsp;|&nbsp; &copy; 2026</p>
+  </footer>
+</body>
+</html>

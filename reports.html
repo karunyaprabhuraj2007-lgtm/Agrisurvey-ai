@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriSurvey AI – Reports & Disclaimer</title>
+  <meta name="description" content="Survey reports and legal disclaimer for AgriSurvey AI." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo.jpg" alt="AgriSurvey AI" class="logo-img" />
+        <span class="brand-name">AgriSurvey <span class="brand-accent">AI</span></span>
+      </div>
+      <nav>
+        <div class="nav-group">
+          <span class="nav-label">OPERATIONS</span>
+          <a href="index.html">Dashboard</a>
+          <a href="mission_planner.html">Mission Planner</a>
+          <a href="data_import.html">Data Import</a>
+          <a href="processing.html">Survey Processing</a>
+          <a href="survey_analysis.html">Survey Analysis</a>
+          <a href="gis_results.html">GIS Results</a>
+          <a href="reports.html" class="active">Reports</a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">SYSTEM</span>
+          <a href="architecture.html">Architecture</a>
+          <a href="feature_matrix.html">Feature Matrix</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1>Reports</h1>
+    <p class="subtitle">Survey reports generated from processed and verified post-flight data.</p>
+
+    <div class="card">
+      <h2>Available Reports</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Report Name</th><th>Survey</th><th>Date</th><th>Status</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mixed Crop Report Q3</td>
+            <td>Corn Survey Alpha</td>
+            <td>2026-09-10</td>
+            <td><span class="badge badge-green">Complete</span></td>
+            <td><button style="font-size:0.8rem; padding:0.3rem 0.8rem;">⬇️ Download</button></td>
+          </tr>
+          <tr>
+            <td>Soybean Survey Report</td>
+            <td>Soybean Survey Beta</td>
+            <td>2026-08-28</td>
+            <td><span class="badge badge-yellow">Pending Review</span></td>
+            <td><button style="font-size:0.8rem; padding:0.3rem 0.8rem;" disabled>⬇️ Download</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Disclaimer</h2>
+      <div class="banner banner-warn">
+        ⚠️ "AgriSurvey AI currently processes survey information after flight. The present prototype does not provide real-time UAV telemetry or live camera streaming."
+      </div>
+      <div class="banner banner-info" style="margin-top:0.75rem;">
+        🤖 "AI-generated observations are decision-support outputs and require human verification."
+      </div>
+      <p style="margin-top:1rem; font-size:0.88rem;">AgriSurvey AI is a <strong>post-flight drone-assisted geospatial agricultural survey and decision-support platform</strong>. It is not a real-time UAV ground-control station, a live surveillance platform, or a real-time drone monitoring platform.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>AgriSurvey AI – Post-Flight Survey Platform &nbsp;|&nbsp; &copy; 2026</p>
+  </footer>
+</body>
+</html>

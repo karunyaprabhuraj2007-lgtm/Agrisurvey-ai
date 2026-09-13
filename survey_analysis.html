@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriSurvey AI – Survey Analysis</title>
+  <meta name="description" content="AI-assisted post-flight survey image analysis with human verification." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo.jpg" alt="AgriSurvey AI" class="logo-img" />
+        <span class="brand-name">AgriSurvey <span class="brand-accent">AI</span></span>
+      </div>
+      <nav>
+        <div class="nav-group">
+          <span class="nav-label">OPERATIONS</span>
+          <a href="index.html">Dashboard</a>
+          <a href="mission_planner.html">Mission Planner</a>
+          <a href="data_import.html">Data Import</a>
+          <a href="processing.html">Survey Processing</a>
+          <a href="survey_analysis.html" class="active">Survey Analysis</a>
+          <a href="gis_results.html">GIS Results</a>
+          <a href="reports.html">Reports</a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">SYSTEM</span>
+          <a href="architecture.html">Architecture</a>
+          <a href="feature_matrix.html">Feature Matrix</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1>Survey Analysis</h1>
+    <p class="subtitle">Post-flight AI-assisted image analysis with mandatory human verification.</p>
+
+    <div style="display:flex; gap:0.75rem; margin-top:1rem; flex-wrap:wrap;">
+      <div class="banner banner-success" style="flex:1;">✅ POST-FLIGHT AI-ASSISTED ANALYSIS</div>
+      <div class="banner banner-warn" style="flex:1;">⚠️ HUMAN VERIFICATION REQUIRED</div>
+    </div>
+
+    <div class="split" style="margin-top:1.5rem;">
+      <!-- Left: Image Viewer -->
+      <div>
+        <div class="card">
+          <h2>Uploaded Survey Image</h2>
+          <div style="background:var(--surface); border:1px dashed var(--border); border-radius:var(--radius-sm); height:260px; display:flex; align-items:center; justify-content:center; color:var(--text-dim); font-size:0.9rem; margin-bottom:0.75rem;">
+            📷 Survey Image #12 — IMG_0012.JPG
+          </div>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem;">
+            <button class="btn-outline">◀ Previous</button>
+            <button class="btn-outline">Next ▶</button>
+            <button class="btn-outline">🔍 Zoom</button>
+          </div>
+          <table class="data-table">
+            <tbody>
+              <tr><td>Filename</td><td>IMG_0012.JPG</td></tr>
+              <tr><td>Capture Timestamp</td><td>2026-09-10 09:14:32</td></tr>
+              <tr><td>Latitude</td><td>35.6842° N</td></tr>
+              <tr><td>Longitude</td><td>-120.1271° W</td></tr>
+              <tr><td>Metadata Status</td><td><span class="badge badge-green">Detected</span></td></tr>
+              <tr><td>Processing Status</td><td><span class="badge badge-yellow">Pending Review</span></td></tr>
+              <tr><td>Map Location</td><td><span class="badge badge-green">Located</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Image Library -->
+        <div class="card">
+          <h2>Image Library</h2>
+          <div class="image-grid">
+            <div class="image-card">
+              <div style="background:#1e2a3a; height:100px; display:flex; align-items:center; justify-content:center; color:var(--text-dim); font-size:0.75rem;">IMG_0001</div>
+              <div class="img-meta"><div class="img-filename">IMG_0001.JPG</div><span class="badge badge-green" style="font-size:0.7rem;">Located</span></div>
+            </div>
+            <div class="image-card">
+              <div style="background:#1e2a3a; height:100px; display:flex; align-items:center; justify-content:center; color:var(--text-dim); font-size:0.75rem;">IMG_0002</div>
+              <div class="img-meta"><div class="img-filename">IMG_0002.JPG</div><span class="badge badge-red" style="font-size:0.7rem;">Location Metadata Missing</span></div>
+            </div>
+            <div class="image-card">
+              <div style="background:#1e2a3a; height:100px; display:flex; align-items:center; justify-content:center; color:var(--text-dim); font-size:0.75rem;">IMG_0003</div>
+              <div class="img-meta"><div class="img-filename">IMG_0003.JPG</div><span class="badge badge-green" style="font-size:0.7rem;">Located</span></div>
+            </div>
+            <div class="image-card">
+              <div style="background:#1e2a3a; height:100px; display:flex; align-items:center; justify-content:center; color:var(--text-dim); font-size:0.75rem;">IMG_0004</div>
+              <div class="img-meta"><div class="img-filename">IMG_0004.JPG</div><span class="badge badge-yellow" style="font-size:0.7rem;">Pending</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: AI Observation Panel -->
+      <div>
+        <div class="card">
+          <h2>AI-Assisted Observation</h2>
+          <div class="banner banner-info" style="font-size:0.82rem; margin-bottom:1rem;">
+            🤖 DEMO INFERENCE — Real AI model not yet integrated. Values shown are for prototype demonstration only.
+          </div>
+          <table class="data-table" style="margin-bottom:1rem;">
+            <tbody>
+              <tr><td>Suggested Category</td><td><span class="badge badge-orange">Weed Encroachment</span></td></tr>
+              <tr><td>Suggested Condition</td><td><span class="badge badge-yellow">Moderate</span></td></tr>
+              <tr><td>Confidence</td><td>72%</td></tr>
+              <tr><td>Evidence Region</td><td>Top-left quadrant</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:0.88rem; margin-bottom:0.75rem;"><strong>Explanation:</strong> The AI detected a patch of vegetation with spectral and texture signatures matching common weed patterns in row-crop environments. Confidence is moderate — human review is recommended before recording this observation.</p>
+
+          <div class="input-group">
+            <label>Notes / Modifications</label>
+            <textarea rows="3" placeholder="Add your verification notes, corrections, or additional observations..."></textarea>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Human Verification</h2>
+          <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+            <button class="btn-success" id="approveBtn">✓ Approve</button>
+            <button class="btn-outline" id="modifyBtn">✏️ Modify</button>
+            <button class="btn-danger" id="rejectBtn">✗ Reject</button>
+            <button class="btn-warn" id="flagBtn">🚩 Flag For Review</button>
+          </div>
+          <p id="verifyMsg" style="margin-top:1rem; font-size:0.88rem;"></p>
+        </div>
+
+        <div class="card">
+          <h2>AI Analysis Workflow</h2>
+          <div class="pipeline">
+            <div class="pipeline-step"><span class="pipeline-step-name">Survey Image</span><span class="badge badge-green">Uploaded</span></div>
+            <div class="pipeline-step"><span class="pipeline-step-name">Pre-processing</span><span class="badge badge-green">Complete</span></div>
+            <div class="pipeline-step"><span class="pipeline-step-name">AI-Assisted Image Analysis</span><span class="badge badge-yellow">Demo Inference</span></div>
+            <div class="pipeline-step"><span class="pipeline-step-name">Suggested Observation</span><span class="badge badge-yellow">Awaiting Verification</span></div>
+            <div class="pipeline-step"><span class="pipeline-step-name">Human Verification</span><span class="badge badge-gray">Pending</span></div>
+            <div class="pipeline-step"><span class="pipeline-step-name">Verified Observation</span><span class="badge badge-gray">Pending</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>AgriSurvey AI – Post-Flight Survey Platform &nbsp;|&nbsp; &copy; 2026</p>
+  </footer>
+
+  <script>
+    const msg = document.getElementById('verifyMsg');
+    document.getElementById('approveBtn').onclick = () => { msg.innerHTML = '<span class="badge badge-green">✓ Observation Approved and recorded.</span>'; };
+    document.getElementById('modifyBtn').onclick  = () => { msg.innerHTML = '<span class="badge badge-blue">✏️ Please update the notes field and re-submit.</span>'; };
+    document.getElementById('rejectBtn').onclick  = () => { msg.innerHTML = '<span class="badge badge-red">✗ Observation Rejected.</span>'; };
+    document.getElementById('flagBtn').onclick    = () => { msg.innerHTML = '<span class="badge badge-yellow">🚩 Flagged for senior review.</span>'; };
+  </script>
+</body>
+</html>

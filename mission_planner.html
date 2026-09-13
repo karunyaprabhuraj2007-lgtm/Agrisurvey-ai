@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriSurvey AI – Mission Planner</title>
+  <meta name="description" content="Plan UAV survey missions with estimated flight parameters before field operation." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo.jpg" alt="AgriSurvey AI" class="logo-img" />
+        <span class="brand-name">AgriSurvey <span class="brand-accent">AI</span></span>
+      </div>
+      <nav>
+        <div class="nav-group">
+          <span class="nav-label">OPERATIONS</span>
+          <a href="index.html">Dashboard</a>
+          <a href="gis_survey.html">GIS Survey</a>
+          <a href="mission_planner.html" class="active">Mission Planner</a>
+          <a href="data_import.html">Data Import</a>
+          <a href="processing.html">Survey Processing</a>
+          <a href="survey_analysis.html">Survey Analysis</a>
+          <a href="gis_results.html">GIS Results</a>
+          <a href="reports.html">Reports</a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">SYSTEM</span>
+          <a href="architecture.html">Architecture</a>
+          <a href="feature_matrix.html">Feature Matrix</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1>Mission Planner</h1>
+    <p class="subtitle">Create and export a planned survey mission before field operation.</p>
+
+    <div class="banner banner-info" style="margin-top:1rem;">
+      ℹ️ All values below are <strong>PLANNED / ESTIMATED</strong>. They are not connected to any live aircraft data.
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2>Mission Parameters</h2>
+        <div class="input-group">
+          <label>Mission Name</label>
+          <input type="text" value="Corn Survey Alpha" />
+        </div>
+        <div class="input-group">
+          <label>Selected Plot</label>
+          <select>
+            <option>Plot A – 15 ha</option>
+            <option>Plot B – 22 ha</option>
+            <option>Plot C – 8 ha</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>Altitude (m) — PLANNED</label>
+          <input type="number" value="120" />
+        </div>
+        <div class="input-group">
+          <label>Flight Speed (m/s) — PLANNED</label>
+          <input type="number" value="6" />
+        </div>
+        <div class="input-group">
+          <label>Front Overlap (%)</label>
+          <input type="number" value="80" />
+        </div>
+        <div class="input-group">
+          <label>Side Overlap (%)</label>
+          <input type="number" value="70" />
+        </div>
+        <div class="input-group">
+          <label>Camera</label>
+          <select>
+            <option>RGB 20 MP</option>
+            <option>Multispectral 5-Band</option>
+            <option>Thermal</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>Survey Pattern</label>
+          <select>
+            <option>Grid</option>
+            <option>Double Grid</option>
+            <option>Perimeter</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Estimated Summary</h2>
+        <table class="data-table">
+          <tbody>
+            <tr><td>Coverage Estimate</td><td><span class="badge badge-green">98 %</span></td></tr>
+            <tr><td>Expected Distance</td><td>2.4 km</td></tr>
+            <tr><td>Expected Flight Time</td><td>14 min</td></tr>
+            <tr><td>Expected Image Count</td><td>450</td></tr>
+            <tr><td>Status</td><td><span class="badge badge-blue">Draft</span></td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:1rem; font-size:0.82rem; color:var(--text-dim);">Route preview – integrate a GIS map library in production.</p>
+        <div style="background:var(--surface); height:160px; border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; color:var(--text-dim); margin-top:0.5rem; border:1px dashed var(--border);">
+          Route Preview Placeholder
+        </div>
+
+        <div style="margin-top:1.25rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <button id="exportBtn">⬇️ Export Mission Plan</button>
+          <button class="btn-warn" id="markFlownBtn">✓ Mark Mission As Flown</button>
+        </div>
+        <p id="statusMsg" style="margin-top:1rem; font-size:0.88rem;"></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>AgriSurvey AI – Post-Flight Survey Platform &nbsp;|&nbsp; &copy; 2026</p>
+  </footer>
+
+  <script>
+    document.getElementById('exportBtn').addEventListener('click', () => {
+      const mission = {
+        name: 'Corn Survey Alpha', plot: 'Plot A – 15 ha',
+        altitude_m: 120, speed_ms: 6, frontOverlap: 80, sideOverlap: 70,
+        camera: 'RGB 20 MP', pattern: 'Grid', coveragePct: 98,
+        expectedDistanceKm: 2.4, expectedFlightTimeMin: 14, expectedImageCount: 450,
+        status: 'Planned', note: 'All values are PLANNED/ESTIMATED only.'
+      };
+      const blob = new Blob([JSON.stringify(mission, null, 2)], {type:'application/json'});
+      const a = Object.assign(document.createElement('a'), {href: URL.createObjectURL(blob), download: 'mission_plan.json'});
+      a.click(); URL.revokeObjectURL(a.href);
+    });
+
+    document.getElementById('markFlownBtn').addEventListener('click', () => {
+      const msg = document.getElementById('statusMsg');
+      msg.innerHTML = '<span class="badge badge-yellow">⏳ Awaiting Survey Data Upload</span> &nbsp; Mission marked as flown. Please proceed to Data Import to upload your captured survey files.';
+    });
+  </script>
+</body>
+</html>

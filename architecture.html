@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriSurvey AI – Architecture</title>
+  <meta name="description" content="System architecture for AgriSurvey AI post-flight survey platform." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo.jpg" alt="AgriSurvey AI" class="logo-img" />
+        <span class="brand-name">AgriSurvey <span class="brand-accent">AI</span></span>
+      </div>
+      <nav>
+        <div class="nav-group">
+          <span class="nav-label">OPERATIONS</span>
+          <a href="index.html">Dashboard</a>
+          <a href="mission_planner.html">Mission Planner</a>
+          <a href="data_import.html">Data Import</a>
+          <a href="processing.html">Survey Processing</a>
+          <a href="survey_analysis.html">Survey Analysis</a>
+          <a href="gis_results.html">GIS Results</a>
+          <a href="reports.html">Reports</a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">SYSTEM</span>
+          <a href="architecture.html" class="active">Architecture</a>
+          <a href="feature_matrix.html">Feature Matrix</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1>System Architecture</h1>
+    <p class="subtitle">AgriSurvey AI — Post-Flight Data Processing Architecture</p>
+
+    <div class="banner banner-info" style="margin-top:1rem;">
+      ℹ️ "AgriSurvey AI currently follows a post-flight data processing architecture. Survey imagery and associated metadata are retrieved after the UAV mission and uploaded to the platform for GIS processing, AI-assisted analysis and human verification."
+    </div>
+
+    <div class="card" style="text-align:center; margin-top:1.5rem;">
+      <img src="architecture_diagram.jpg" alt="AgriSurvey AI System Architecture Diagram" style="max-width:100%; border-radius:var(--radius-sm);" />
+    </div>
+
+    <div class="card">
+      <h2>Architecture Flow</h2>
+      <div class="pipeline">
+        <div class="pipeline-step"><span class="pipeline-step-name">🌾 Agricultural Field</span><span class="badge badge-green">Source</span></div>
+        <div class="pipeline-step"><span class="pipeline-step-name">📋 Mission Planning</span><span class="badge badge-blue">Pre-flight</span></div>
+        <div class="pipeline-step"><span class="pipeline-step-name">🚁 Drone Platform</span><span class="badge badge-blue">Field Operation</span></div>
+        <div class="pipeline-step"><span class="pipeline-step-name">📷 Camera + GNSS</span><span class="badge badge-blue">On-board Capture</span></div>
+        <div class="pipeline-step"><span class="pipeline-step-name">💾 Onboard / Local Data Storage</span><span class="badge badge-blue">On-board Storage</span></div>
+        <div class="pipeline-step"><span class="pipeline-step-name">⬇️ Post-Flight Data Retrieval</span><span class="badge badge-yellow">Post-Flight</span></div>
+        <div class="pipeline-step"><span class="pipeline-step-name">☁️ AgriSurvey AI Web Platform</span><span class="badge badge-purple">Platform</span></div>
+        <div class="pipeline-step"><span class="pipeline-step-name">✅ Data Validation</span><span class="badge badge-green">Automated</span></div>
+        <div class="pipeline-step"><span class="pipeline-step-name">⚙️ Pre-processing</span><span class="badge badge-green">Automated</span></div>
+        <div class="pipeline-step"><span class="pipeline-step-name">🗺️ GIS Processing</span><span class="badge badge-green">Automated</span></div>
+        <div class="pipeline-step"><span class="pipeline-step-name">🤖 AI-Assisted Analysis</span><span class="badge badge-yellow">Demo Inference</span></div>
+        <div class="pipeline-step"><span class="pipeline-step-name">👁️ Human Verification</span><span class="badge badge-orange">Required</span></div>
+        <div class="pipeline-step"><span class="pipeline-step-name">📍 GIS Results</span><span class="badge badge-green">Output</span></div>
+        <div class="pipeline-step"><span class="pipeline-step-name">📄 Survey Report</span><span class="badge badge-green">Output</span></div>
+      </div>
+      <div class="banner banner-success" style="margin-top:1.25rem; font-size:0.82rem;">
+        🔄 Feedback loop: Human correction → Observation database → Future model improvement
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>AgriSurvey AI – Post-Flight Survey Platform &nbsp;|&nbsp; &copy; 2026</p>
+  </footer>
+</body>
+</html>
